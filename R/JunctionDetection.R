@@ -340,7 +340,7 @@ letterPaths = function(allPaths, nodeGraph0, breakPoints)
   if(any(as.character(format(breakPoints, scientific = FALSE, trim = TRUE)) %in% names(V(nodeGraph0))))
     nodeGraph0 = delete_vertices(nodeGraph0, v = as.character(format(breakPoints, scientific = FALSE, trim = TRUE)))
   grIDs = rep(NA, length(V(nodeGraph0)))
-  dists = distances(nodeGraph0, v = names(V(nodeGraph0)), to = names(V(nodeGraph0)), weights = E(nodeGraph0)$nodeOnlyDist)
+  dists = igraph::distances(nodeGraph0, v = names(V(nodeGraph0)), to = names(V(nodeGraph0)), weights = E(nodeGraph0)$nodeOnlyDist)
   vertList = V(nodeGraph0)$name
 
   grPaths = list()
